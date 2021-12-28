@@ -9,5 +9,28 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
+    /**
+     * @OA\Info(
+     *      version="1.0.0",
+     *      title="PHP challenge app API",
+     *      description="PHP challenge app API documentation",
+     *      @OA\Contact(
+     *          email="dukensdev@gmail.com"
+     *      ),
+     *      @OA\License(
+     *          name="Apache 2.0",
+     *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
+     *      )
+     * )
+     *
+     * @OA\Server(
+     *      url="",
+     *      description="PHP challenge API"
+     * )
+
+     *
+     *
+     */
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
