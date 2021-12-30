@@ -5380,6 +5380,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   watch: {// $route() {
     //   $("#navbarCollapse").collapse("hide");
@@ -5516,6 +5531,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['id'],
   data: function data() {
@@ -5529,13 +5547,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    // At this point, the child GmapMap has been mounted, but
-    // its map has not been initialized.
-    // Therefore we need to write mapRef.$mapPromise.then(() => ...)
     this.$refs.mapRef.$mapPromise.then(function (map) {
       map.panTo({
-        lat: 1.38,
-        lng: 103.80
+        lat: 18.5383,
+        lng: -72.29171
       });
     });
   },
@@ -5572,6 +5587,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28774,7 +28797,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-card-2 .card-img-block[data-v-b3c5cf30]{\n    float:left;\n    width:100%;\n    height:70px;\n    overflow:hidden;\n}\n.profile-card-2 .card-body[data-v-b3c5cf30]{\n    position:relative;\n}\n.profile-card-2 .profile[data-v-b3c5cf30] {\n  border-radius: 50%;\n  position: absolute;\n  top: -42px;\n  left: 15%;\n  max-width: 75px;\n  border: 3px solid rgba(255, 255, 255, 1);\n  transform: translate(-50%, 0%);\n}\n.profile-card-2 h5[data-v-b3c5cf30]{\n    font-weight:600;\n    color:#6ab04c;\n}\n.profile-card-2 .card-text[data-v-b3c5cf30]{\n    font-weight:300;\n    font-size:15px;\n}\n.profile-card-2 .icon-block[data-v-b3c5cf30]{\n    float:left;\n    width:100%;\n}\n.profile-card-2 .icon-block a[data-v-b3c5cf30]{\n    text-decoration:none;\n}\n.profile-card-2 i[data-v-b3c5cf30] {\n  display: inline-block;\n    font-size: 16px;\n    color: #6ab04c;\n    text-align: center;\n    border: 1px solid #6ab04c;\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    border-radius: 50%;\n    margin:0 5px;\n}\n.profile-card-2 i[data-v-b3c5cf30]:hover {\n  background-color:#6ab04c;\n  color:#fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-card-2 .card-img-block[data-v-b3c5cf30] {\n    float: left;\n    width: 100%;\n    height: 70px;\n    overflow: hidden;\n}\n.profile-card-2 .card-body[data-v-b3c5cf30] {\n    position: relative;\n}\n.profile-card-2 .profile[data-v-b3c5cf30] {\n    border-radius: 50%;\n    position: absolute;\n    top: -42px;\n    left: 15%;\n    max-width: 75px;\n    border: 3px solid rgba(255, 255, 255, 1);\n    transform: translate(-50%, 0%);\n}\n.profile-card-2 h5[data-v-b3c5cf30] {\n    font-weight: 600;\n    color: #6ab04c;\n}\n.profile-card-2 .card-text[data-v-b3c5cf30] {\n    font-weight: 300;\n    font-size: 15px;\n}\n.profile-card-2 .icon-block[data-v-b3c5cf30] {\n    float: left;\n    width: 100%;\n}\n.profile-card-2 .icon-block a[data-v-b3c5cf30] {\n    text-decoration: none;\n}\n.profile-card-2 i[data-v-b3c5cf30] {\n    display: inline-block;\n    font-size: 16px;\n    color: #6ab04c;\n    text-align: center;\n    border: 1px solid #6ab04c;\n    width: 30px;\n    height: 30px;\n    line-height: 30px;\n    border-radius: 50%;\n    margin: 0 5px;\n}\n.profile-card-2 i[data-v-b3c5cf30]:hover {\n    background-color: #6ab04c;\n    color: #fff;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -53685,9 +53708,35 @@ var render = function () {
     _c("main", { attrs: { id: "main" } }, [_c("router-view")], 1),
     _vm._v(" "),
     _c("div", { attrs: { id: "preloader" } }),
+    _vm._v(" "),
+    _vm._m(0),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { attrs: { id: "footer" } }, [
+      _c("div", { staticClass: "container d-md-flex py-4" }, [
+        _c("div", { staticClass: "me-md-auto text-center text-md-start" }, [
+          _c("div", { staticClass: "copyright" }, [
+            _vm._v("\n          © Copyright "),
+            _c("strong", [_c("span", [_vm._v("Dukens")])]),
+            _vm._v(". All Rights Reserved\n        "),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "credits" }, [
+            _vm._v("\n          Designed by "),
+            _c("a", { attrs: { href: "https://thelemaque-dukens.com/" } }, [
+              _vm._v("Dukens Thelemaque"),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 
@@ -53851,6 +53900,12 @@ var render = function () {
                     "\n                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit\n                    in voluptate\n                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n                    proident, sunt in\n                    culpa qui officia deserunt mollit anim id est laborum\n                "
                   ),
                 ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi voluptate dolor quos tenetur nemo excepturi. Ducimus doloremque dolor aliquid sed dolorem tenetur modi repellendus, doloribus quod adipisci consequuntur nemo facilis!\n                "
+                  ),
+                ]),
               ]
             ),
             _vm._v(" "),
@@ -53938,13 +53993,34 @@ var render = function () {
                       }),
                       _vm._v(" "),
                       _c("div", { staticClass: "mb-2" }, [
-                        _c("h5", { staticClass: "card-title" }, [
-                          _vm._v(
-                            _vm._s(customer.first_name) +
-                              " " +
-                              _vm._s(customer.last_name)
-                          ),
-                        ]),
+                        _c(
+                          "h5",
+                          { staticClass: "card-title" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticStyle: { color: "#6ab04c" },
+                                attrs: {
+                                  to: {
+                                    name: "customer",
+                                    params: { id: customer.id },
+                                  },
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                    " +
+                                    _vm._s(customer.first_name) +
+                                    " " +
+                                    _vm._s(customer.last_name) +
+                                    "\n                                "
+                                ),
+                              ]
+                            ),
+                          ],
+                          1
+                        ),
                         _vm._v(" "),
                         _c("span", [_vm._v(_vm._s(customer.title))]),
                       ]),
@@ -53994,7 +54070,7 @@ var render = function () {
                             },
                             [
                               _vm._v(
-                                "\n                            View customer\n                        "
+                                "\n                                View customer\n                            "
                               ),
                             ]
                           ),
@@ -54014,7 +54090,7 @@ var render = function () {
             { staticClass: "mt-4 text-center" },
             [
               _c("pagination", {
-                attrs: { limit: 21, align: "center", data: _vm.customers },
+                attrs: { limit: 24, align: "center", data: _vm.customers },
                 on: { "pagination-change-page": _vm.getCustomers },
               }),
             ],

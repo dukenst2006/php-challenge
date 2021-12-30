@@ -44,6 +44,9 @@
                         proident, sunt in
                         culpa qui officia deserunt mollit anim id est laborum
                     </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi voluptate dolor quos tenetur nemo excepturi. Ducimus doloremque dolor aliquid sed dolorem tenetur modi repellendus, doloribus quod adipisci consequuntur nemo facilis!
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <!-- <GmapMap
@@ -85,12 +88,8 @@
             }
         },
         mounted () {
-            // At this point, the child GmapMap has been mounted, but
-            // its map has not been initialized.
-            // Therefore we need to write mapRef.$mapPromise.then(() => ...)
-
             this.$refs.mapRef.$mapPromise.then((map) => {
-            map.panTo({lat: 1.38, lng: 103.80})
+            map.panTo({lat: 18.5383, lng: -72.29171})
             })
         },
         created() {
