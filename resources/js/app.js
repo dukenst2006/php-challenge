@@ -10,6 +10,9 @@
 
  import router from './router';
  import App from './layouts/App.vue';
+ import VueLetterAvatar from 'vue-letter-avatar';
+
+ Vue.use(VueLetterAvatar);
 
  /**
   * The following block of code may be used to automatically register your
@@ -23,7 +26,18 @@
  // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
  Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+ Vue.component('pagination', require('laravel-vue-pagination'));
 
+ import GmapVue from 'gmap-vue'
+
+ Vue.use(GmapVue, {
+    load: {
+      key: 'AIzaSyCTKTjZvwnCLrtOo8jg67nTJ2RDwLS8Yzs',
+      libraries: 'places', // This is required if you use the Autocomplete plugin
+    },
+
+    installComponents: true
+  })
  /**
   * Next, we will create a fresh Vue application instance and attach it to
   * the page. Then, you may begin adding components to this application

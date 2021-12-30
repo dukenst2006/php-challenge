@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Validator;
 use Illuminate\Http\Request;
 use App\Domains\Auth\Models\User;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ class UserController extends Controller
     use AuthenticatesUsers;
 
     public $successStatus = 200;
+
     /**
      * @OA\Post(
      ** path="/api/auth/login",
@@ -82,6 +84,17 @@ class UserController extends Controller
             $success['user'] = auth()->user();
             return response()->json(['success' => $success])->setStatusCode(Response::HTTP_ACCEPTED);
         }
+
+        // $request = $request->request->add([
+        //     'email' => $request->username,
+        //     'password' => $request->password,
+        //     'grant_type' => 'password',
+        //     'client_id' => $this->client->id,
+        //     'client_secret' => $this->client->secret,
+        //     'scope' => '*'
+        // ]);
+
+        // return app()->handle($request);
     }
 
     /**
@@ -124,7 +137,7 @@ class UserController extends Controller
      *      )
      *   ),
      *   @OA\Response(
-     *      response=201,
+     *      response=200,
      *       description="Success",
      *      @OA\MediaType(
      *           mediaType="application/json",
@@ -183,7 +196,7 @@ class UserController extends Controller
      *   operationId="user-account",
      *
      *   @OA\Response(
-     *      response=201,
+     *      response=200,
      *       description="Success",
      *      @OA\MediaType(
      *           mediaType="application/json",

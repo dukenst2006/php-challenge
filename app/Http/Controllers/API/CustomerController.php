@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CustomerController extends Controller
 {
@@ -45,7 +46,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::paginate(10);
+        $customers = Customer::paginate(12);
 
         return response()->json([
             'success' => true,
@@ -72,7 +73,7 @@ class CustomerController extends Controller
      *      )
      *   ),
      *   @OA\Response(
-     *      response=201,
+     *      response=200,
      *       description="Success",
      *      @OA\MediaType(
      *           mediaType="application/json",
@@ -109,12 +110,9 @@ class CustomerController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Customer not found '
-            ], 400);
+            ], 404);
         }
 
-        return response()->json([
-            'success' => true,
-            'data' => $customer->toArray()
-        ], 400);
+        return response()->json(['data' => $customer], 200);
     }
 }

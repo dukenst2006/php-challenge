@@ -1,19 +1,13 @@
 <template>
-  <div>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <router-link :to="{ name: 'home' }" class="navbar-brand"
-        >PHP challenge SPA</router-link
-      >
-      <button
-        class="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#navbarCollapse"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div id="navbarCollapse" class="collapse navbar-collapse">
-        <ul class="navbar-nav">
-          <li class="nav-item">
+<div>
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><router-link :to="{name: 'home'}"> PHP Challenge</router-link></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li>
             <router-link
               class="nav-link"
               data-toggle="collapse"
@@ -22,8 +16,7 @@
               Home
             </router-link>
           </li>
-
-          <li class="nav-item">
+          <li>
             <router-link
               class="nav-link"
               data-toggle="collapse"
@@ -32,22 +25,50 @@
               About
             </router-link>
           </li>
+          <li>
+            <router-link
+              class="nav-link getstarted"
+              data-toggle="collapse"
+              :to="{ name: 'login' }"
+            >
+              Login
+            </router-link>
+          </li>
         </ul>
-      </div>
-    </nav>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-    <div class="container">
-      <router-view></router-view>
     </div>
-  </div>
-</template>
+  </header><!-- End Header -->
 
+  <!-- ======= Hero Section ======= -->
+  <!-- <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+      <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9 text-center">
+          <h1>One Page Bootstrap Website Template</h1>
+          <h2>We are team of talented designers</h2>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      </div>
+    </div>
+  </section> -->
+  <!-- End Hero -->
+
+  <main id="main">
+      <router-view></router-view>
+  </main>
+    <div id="preloader"></div>
+</div>
+</template>
 <script>
 export default {
   watch: {
-    $route() {
-      $("#navbarCollapse").collapse("hide");
-    },
+    // $route() {
+    //   $("#navbarCollapse").collapse("hide");
+    // },
   },
 };
 </script>
