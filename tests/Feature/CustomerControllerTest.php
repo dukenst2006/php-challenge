@@ -11,25 +11,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CustomerControllerTest extends TestCase
 {
-    /**
-     * Authenticate user.
-     *
-     * @return void
-     */
-    protected function authenticate()
-    {
-        $user = User::create([
-            'name' => 'test',
-            'email' => rand(12345, 678910) . 'test@gmail.com',
-            'password' => \Hash::make('secret9874'),
-        ]);
-
-        if (!auth()->attempt(['email' => $user->email, 'password' => 'secret1234'])) {
-            return response(['message' => 'Login credentials are invaild']);
-        }
-
-        return $accessToken = auth()->user()->createToken('authToken')->accessToken;
-    }
 
     /**
      * test get all customers.
@@ -38,10 +19,10 @@ class CustomerControllerTest extends TestCase
      */
     public function test_get_all_customer()
     {
-        $token = $this->authenticate();
+        $user = $this->signIn();
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer ' . $user->access_token,
         ])->json('GET', 'api/customers');
 
         //Write the response in laravel.log
@@ -57,7 +38,7 @@ class CustomerControllerTest extends TestCase
      */
     public function test_get_single_customer_by_id()
     {
-        $token = $this->authenticate();
+        $user = $this->signIn();
         // Create a new customer
         $customer = Customer::create([
             'first_name' => 'John',
@@ -69,7 +50,7 @@ class CustomerControllerTest extends TestCase
             'title' => 'ceo'
         ]);
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer ' . $token,
+            'Authorization' => 'Bearer ' . $user->access_token,
         ])->json('GET', 'api/customers/' . $customer->id);
 
         //Write the response in laravel.log
@@ -80,8 +61,11 @@ class CustomerControllerTest extends TestCase
 
     public function testShowForMissingCustomer()
     {
+        $user = $this->signIn();
+        $response = $this->withHeaders([
+            'Authorization' => 'Bearer ' . $user->access_token,
+        ])->json('GET', 'api/customers/' . 0);
 
-        $this->json('get', "api/customers/0")
-            ->assertStatus(Response::HTTP_NOT_FOUND);
+        $response->assertStatus(Response::HTTP_NOT_FOUND);
     }
 }

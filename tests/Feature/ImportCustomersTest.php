@@ -20,7 +20,7 @@ class ImportCustomersTest extends TestCase
         // get the file path
         $file = storage_path('app/customers.csv');
 
-        Excel::assertImported($file, 'local');
+        // Excel::assertImported($file, 'local');
 
         Excel::assertImported($file, 'local', function (CustomersImport $import) {
             return true;
