@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\LoginController;
+use App\Http\Controllers\API\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,14 @@ use App\Http\Controllers\API\CustomerController;
 */
 
 Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', [UserController::class, 'login']);
-    Route::post('register', [UserController::class, 'register']);
-    Route::post('password/email', [UserController::class, 'forgot']);
+    Route::post('login', [LoginController::class, 'login'])->name('login');
+    Route::post('register', [RegisterController::class, 'register'])->name('register');
 });
 
 Route::middleware('auth:api')->group(function () {
-    Route::get('user/logout', [UserController::class, 'logout']);
-    // Route::resource('customers', CustomerController::class)->middleware('client');
+    Route::get('user/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::resource('customers', CustomerController::class);
+    //->middleware('client')
 });
 
-Route::resource('customers', CustomerController::class);
+// Route::resource('customers', CustomerController::class);
