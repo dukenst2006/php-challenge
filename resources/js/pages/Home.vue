@@ -53,9 +53,15 @@
                     </div>
                 </div>
             </template>
-            <div class="mt-4 text-center">
-                <pagination :limit='24' align="center" :data="customers" @pagination-change-page="getCustomers">
-                </pagination>
+            <div class="card bg-light mt-3">
+                <div class="card-body p-3">
+                    <div class="overflow-auto">
+                        <pagination align="center" :limit=22 :data="customers" @pagination-change-page="getCustomers">
+                        <!-- <span slot="prev-nav">&lt; Previous</span>
+	                    <span slot="next-nav">Next &gt;</span> -->
+                        </pagination>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

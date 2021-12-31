@@ -6,6 +6,7 @@ import Login from './pages/Login.vue';
 import About from './pages/About.vue';
 import Customer from './pages/Customer.vue';
 import Dashboard from './dashboard/Dashboard.vue';
+import NotFound from './pages/NotFound';
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,17 @@ const router = new VueRouter({
         {
             path: '/login',
             name: 'login',
-            component: Login },
+            component: Login
+        },
+        {
+            path: '/404',
+            name: '404',
+            component: NotFound,
+        },
+        {
+            path: '*',
+            redirect: '/404',
+        },
     ]
 });
 
