@@ -146,7 +146,7 @@
             }
         },
         "/api/user/logout": {
-            "get": {
+            "post": {
                 "tags": [
                     "Users"
                 ],

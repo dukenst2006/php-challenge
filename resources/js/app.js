@@ -9,6 +9,7 @@
  window.Vue = require('vue').default;
 
  import router from './router';
+ import store from './store'
  import App from './layouts/App.vue';
  import VueLetterAvatar from 'vue-letter-avatar';
 
@@ -29,6 +30,8 @@
  Vue.component('pagination', require('laravel-vue-pagination'));
 
  import GmapVue from 'gmap-vue'
+ import VueCookies from 'vue-cookies'
+ Vue.use(VueCookies)
 
  Vue.use(GmapVue, {
     load: {
@@ -43,9 +46,25 @@
   * the page. Then, you may begin adding components to this application
   * or customize the JavaScript scaffolding to fit your unique needs.
   */
+  router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      // this route requires auth, check if logged in
+      // if not, redirect to login page.
+      if (!store.getters.loggedIn) {
+        next({
+          name: 'login',
+        })
+      } else {
+        next()
+      }
+    } else {
+      next()
+    }
+  })
 
  const app = new Vue({
      router,
+     store,
      el: '#app',
      render: h => h(App)
  });

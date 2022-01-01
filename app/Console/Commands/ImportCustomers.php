@@ -46,7 +46,7 @@ class ImportCustomers extends Command
             (new CustomersImport)->withOutput($this->output)->import($file);
             $this->output->success('Customers import successful');
         } else {
-            $this->error("\n customers.csv fle is not found.");
+            $this->error("\n customers.csv file is not found.");
         }
     }
 }

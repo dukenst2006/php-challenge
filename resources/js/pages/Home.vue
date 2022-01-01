@@ -74,12 +74,19 @@
                 customers: {}
             }
         },
+        computed: {
+            token() {
+                return localStorage.getItem('access_token');
+            }
+        },
         created() {
             this.getCustomers();
         },
         methods: {
             getCustomers(page = 1) {
-                axios.get('/api/customers?page=' + page).then(response => {
+                axios.get('/api/customers?page=' + page,{
+              headers: { Authorization: "Bearer " + this.token }
+            }).then(response => {
                     console.log(response.data.data.data);
                     this.customers = response.data.data;
                 })

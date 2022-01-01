@@ -100,9 +100,16 @@
                 this.getPost(this.id);
             }
         },
+        computed: {
+            token() {
+                return localStorage.getItem('access_token');
+            }
+        },
         methods: {
             getCustomer(id) {
-                axios.get('/api/customers/' + id).then(response => {
+                axios.get('/api/customers/' + id,{
+              headers: { Authorization: "Bearer " + this.token }
+            }).then(response => {
                     console.log(response.data.data.data);
                     this.customer = response.data.data;
                 })

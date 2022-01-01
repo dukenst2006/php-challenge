@@ -14,9 +14,9 @@ class CustomerController extends Controller
      *      path="/api/customers",
      *      operationId="getCustomerList",
      *      tags={"Customers"},
-     * security={
-     *  {"passport": {}},
-     *   },
+     *      security={
+     *      {"passport": {}},
+     *      },
      *      summary="Get list of customers",
      *      description="Returns list of customers",
      *      @OA\Response(
@@ -34,11 +34,11 @@ class CustomerController extends Controller
      *          response=403,
      *          description="Forbidden"
      *      ),
-     * @OA\Response(
+     *      @OA\Response(
      *      response=400,
      *      description="Bad Request"
-     *   ),
-     * @OA\Response(
+     *      ),
+     *      @OA\Response(
      *      response=404,
      *      description="not found"
      *   ),

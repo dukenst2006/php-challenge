@@ -87,7 +87,7 @@ class LoginController extends Controller
     }
 
     /**
-     * @OA\Get(
+     * @OA\Post(
      ** path="/api/user/logout",
      *   tags={"Users"},
      * security={

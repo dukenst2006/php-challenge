@@ -25,7 +25,7 @@
               About
             </router-link>
           </li>
-          <li>
+          <li v-if="!isLoggedIn">
             <router-link
               class="nav-link getstarted"
               data-toggle="collapse"
@@ -34,29 +34,20 @@
               Login
             </router-link>
           </li>
+          <li v-else>
+            <router-link
+              class="nav-link"
+              :to="{ name: 'logout' }"
+            >
+              Logout
+            </router-link>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <!-- <section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-      <div class="row justify-content-center">
-        <div class="col-xl-7 col-lg-9 text-center">
-          <h1>One Page Bootstrap Website Template</h1>
-          <h2>We are team of talented designers</h2>
-        </div>
-      </div>
-      <div class="text-center">
-        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-      </div>
-    </div>
-  </section> -->
-  <!-- End Hero -->
-
   <main id="main">
       <router-view></router-view>
   </main>
@@ -80,6 +71,11 @@
 </template>
 <script>
 export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.loggedIn
+    }
+  },
   watch: {
     // $route() {
     //   $("#navbarCollapse").collapse("hide");

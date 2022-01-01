@@ -6,6 +6,7 @@ import Login from './pages/Login.vue';
 import About from './pages/About.vue';
 import Customer from './pages/Customer.vue';
 import Dashboard from './dashboard/Dashboard.vue';
+import Logout from './pages/Logout.vue';
 import NotFound from './pages/NotFound';
 
 Vue.use(VueRouter);
@@ -17,13 +18,19 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: Home
+            component: Home,
+            meta: {
+                requiresAuth: true,
+            }
         },
         {
             path:'/customer/:id',
             name:'customer',
             component:Customer,
             props:true,
+            meta: {
+                requiresAuth: true,
+            }
         },
         {
             path: '/about',
@@ -33,7 +40,18 @@ const router = new VueRouter({
         {
             path: '/login',
             name: 'login',
-            component: Login
+            component: Login,
+            meta: {
+                requiresVisitor: true,
+            }
+        },
+        {
+            path: '/logout',
+            name: 'logout',
+            component: Logout,
+            meta: {
+                requiresAuth: true,
+            }
         },
         {
             path: '/404',
