@@ -19,7 +19,7 @@
         }
     ],
     "paths": {
-        "/api/customers": {
+        "/api/v1/customers": {
             "get": {
                 "tags": [
                     "Customers"
@@ -54,7 +54,7 @@
                 ]
             }
         },
-        "/api/customers/{id}": {
+        "/api/v1/customers/{id}": {
             "get": {
                 "tags": [
                     "Customers"
@@ -98,7 +98,7 @@
                 ]
             }
         },
-        "/api/auth/login": {
+        "/api/v1/auth/login": {
             "post": {
                 "tags": [
                     "Users"
@@ -145,7 +145,7 @@
                 }
             }
         },
-        "/api/user/logout": {
+        "/api/v1/user/logout": {
             "post": {
                 "tags": [
                     "Users"
@@ -179,7 +179,7 @@
                 ]
             }
         },
-        "/api/auth/register": {
+        "/api/v1/auth/register": {
             "post": {
                 "tags": [
                     "Users"

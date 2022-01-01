@@ -24,7 +24,7 @@ const store = new Vuex.Store({
     retrieveToken(context, credentials) {
 
       return new Promise((resolve, reject) => {
-        axios.post('/api/auth/login', {
+        axios.post('/api/v1/auth/login', {
           email: credentials.username,
           password: credentials.password,
         })
@@ -52,7 +52,7 @@ const store = new Vuex.Store({
       if (context.getters.loggedIn) {
 
         return new Promise((resolve, reject) => {
-          axios.post('/api/auth/logout', '', {
+          axios.post('/api/v1/user/logout', '', {
               headers: { Authorization: "Bearer " + context.state.token }
             })
             .then(response => {

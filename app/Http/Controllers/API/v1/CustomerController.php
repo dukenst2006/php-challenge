@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
@@ -11,7 +11,7 @@ class CustomerController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/api/customers",
+     *      path="/api/v1/customers",
      *      operationId="getCustomerList",
      *      tags={"Customers"},
      *      security={
@@ -56,7 +56,7 @@ class CustomerController extends Controller
 
     /**
      * @OA\Get(
-     ** path="/api/customers/{id}",
+     ** path="/api/v1/customers/{id}",
      *   tags={"Customers"},
      * security={
      *  {"passport": {}},

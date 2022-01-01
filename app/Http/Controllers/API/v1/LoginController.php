@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     /**
      * @OA\Post(
-     ** path="/api/auth/login",
+     ** path="/api/v1/auth/login",
      *   tags={"Users"},
      *   summary="Login a user",
      *   operationId="login",
@@ -88,7 +88,7 @@ class LoginController extends Controller
 
     /**
      * @OA\Post(
-     ** path="/api/user/logout",
+     ** path="/api/v1/user/logout",
      *   tags={"Users"},
      * security={
      *  {"passport": {}},

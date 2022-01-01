@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\API\v1;
 
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
     /**
      * @OA\Post(
-     ** path="/api/auth/register",
+     ** path="/api/v1/auth/register",
      *   tags={"Users"},
      *   summary="Register a new user",
      *   operationId="register",

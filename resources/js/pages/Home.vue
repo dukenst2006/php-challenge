@@ -84,7 +84,7 @@
         },
         methods: {
             getCustomers(page = 1) {
-                axios.get('/api/customers?page=' + page,{
+                axios.get('/api/v1/customers?page=' + page,{
               headers: { Authorization: "Bearer " + this.token }
             }).then(response => {
                     console.log(response.data.data.data);

@@ -5515,21 +5515,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['id'],
   data: function data() {
@@ -5567,7 +5552,7 @@ __webpack_require__.r(__webpack_exports__);
     getCustomer: function getCustomer(id) {
       var _this = this;
 
-      axios.get('/api/customers/' + id, {
+      axios.get('/api/v1/customers/' + id, {
         headers: {
           Authorization: "Bearer " + this.token
         }
@@ -5680,7 +5665,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('/api/customers?page=' + page, {
+      axios.get('/api/v1/customers?page=' + page, {
         headers: {
           Authorization: "Bearer " + this.token
         }
@@ -6074,7 +6059,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
   actions: {
     retrieveToken: function retrieveToken(context, credentials) {
       return new Promise(function (resolve, reject) {
-        axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/auth/login', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/v1/auth/login', {
           email: credentials.username,
           password: credentials.password
         }).then(function (response) {
@@ -6096,7 +6081,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__["default"].Store({
     destroyToken: function destroyToken(context) {
       if (context.getters.loggedIn) {
         return new Promise(function (resolve, reject) {
-          axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/auth/logout', '', {
+          axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/v1/user/logout', '', {
             headers: {
               Authorization: "Bearer " + context.state.token
             }
