@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\CustomerController;
+use App\Http\Controllers\API\v1\CustomerController;
+use App\Http\Controllers\API\v1\LoginController;
+use App\Http\Controllers\API\v1\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +17,14 @@ use App\Http\Controllers\API\CustomerController;
 |
 */
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::post('login', [UserController::class, 'login']);
-    Route::post('register', [UserController::class, 'register']);
-    Route::post('password/email', [UserController::class, 'forgot']);
-});
+Route::group(['prefix' => 'v1', 'as' => 'api.'], function () {
+    Route::group(['prefix' => 'auth'], function () {
+        Route::post('login', [LoginController::class, 'login'])->name('login');
+        Route::post('register', [RegisterController::class, 'register'])->name('register');
+    });
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('user/logout', [UserController::class, 'logout']);
-    Route::resource('customers', CustomerController::class);
+    Route::middleware('auth:api', 'throttle:60,1')->group(function () {
+        Route::post('user/logout', [LoginController::class, 'logout'])->name('logout');
+        Route::resource('customers', CustomerController::class);
+    });
 });
-
-Route::resource('customers', CustomerController::class);

@@ -30,4 +30,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'vue_client' => [
+        'id' => env('VUE_CLIENT_ID', 2),
+        'secret' => env('VUE_CLIENT_SECRET'),
+    ],
+
 ];
