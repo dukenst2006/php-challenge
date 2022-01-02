@@ -95,7 +95,6 @@
                 axios.get('/api/v1/customers/' + id,{
                 headers: { Authorization: "Bearer " + this.token }
             }).then(response => {
-                    console.log(response.data.data.data);
                     this.customer = response.data.data;
                 })
             },

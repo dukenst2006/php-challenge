@@ -31,7 +31,6 @@ const store = new Vuex.Store({
           .then(response => {
             console.log(response.data[0].access_token)
             let access_token = 'Bearer ' + response.data[0].access_token;
-            // this.$cookies.set("default_unit_second","input_value",60 * 60 * 12);
             axios.defaults.headers.common['Authorization'] = access_token;
             console.log(response)
             const token = response.data[0].access_token
@@ -56,8 +55,6 @@ const store = new Vuex.Store({
               headers: { Authorization: "Bearer " + context.state.token }
             })
             .then(response => {
-              console.log(response)
-            //   this.$cookies.remove("access_token");
               localStorage.removeItem('access_token')
               context.commit('destroyToken')
 
@@ -65,7 +62,6 @@ const store = new Vuex.Store({
             })
             .catch(error => {
               console.log(error)
-            //   this.$cookies.remove("access_token");
               localStorage.removeItem('access_token')
               context.commit('destroyToken')
 

@@ -59,9 +59,6 @@
                         password: this.password
                     })
                     .then(response => {
-                        // let access_token = 'Bearer ' + resp.data.access_token;
-                        // Cookies.set ('access_token', access_token, {expires: remember ? 365 : 1});
-                        // axios.defaults.headers.common['Authorization'] = access_token;
                         this.$router.push({ name: "home" });
                     })
                     .catch(error => {
