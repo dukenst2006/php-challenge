@@ -28,6 +28,12 @@ vuex 3.6.2, Bootstrap 4.
    ```bash
   $ git clone https://github.com/dukenst2006/php-challenge.git
   ```
+
+  - Install dependencies with `Composer` :
+  ```bash
+  $ composer install
+  ```
+
  - Create a file .env using .env.example. Update the files - set app url, database connection, passport details like client_id & client_secret and  GOOGLE_MAPS_API_KEY.
  ```
   $ cp .env.example .env 
@@ -35,10 +41,6 @@ vuex 3.6.2, Bootstrap 4.
  
 - Run `php artisan key:generate`
 
-- Install dependencies with `Composer` :
-  ```bash
-  $ composer install
-  ```
 - Create two databases one for app (e.g api) and one for app testing (e.g api_testing).  
 - Install front-end dependencies with `npm`:
   ```bash
@@ -48,15 +50,16 @@ vuex 3.6.2, Bootstrap 4.
   You can use `email: test@gmail.com`, `pwd: secret`
 
 - Run `php artisan passport:install`.
-Note client_id & client_secret provided. it will required to get API authorizations from `/api/docs` endpoint
+Note Client ID & Client secret provided. it will required to get API authorizations from `/api/docs` endpoint
 
 - Run `php artisan import-customers:csv` to import customers from customers.csv file.
 NB: latitude & longitude will be fill from Google map API
 
-- To run the tests use `Make sure update the .env.testing file`:   
+- To run the tests use:   
   ```bash
   $ php artisan test
   ```
+  `Make sure update the .env.testing file`
 
  ### DEMO
  - SPA Demo
