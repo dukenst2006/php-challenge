@@ -21,7 +21,7 @@ class LoginControllerTest extends TestCase
 
         $response = $this->json(
             'post',
-            route('login'),
+            route('api.login'),
             ['email' => $user->email, 'password' => $password]
         );
         // dd($response->json());

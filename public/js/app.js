@@ -5386,15 +5386,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   computed: {
     isLoggedIn: function isLoggedIn() {
       return this.$store.getters.loggedIn;
     }
-  },
-  watch: {// $route() {
-    //   $("#navbarCollapse").collapse("hide");
-    // },
   }
 });
 
@@ -5521,17 +5519,19 @@ __webpack_require__.r(__webpack_exports__);
     return {
       customer: {},
       center: {
-        lat: 4.5,
-        lng: 99
+        lat: 43.2556568,
+        lng: -71.833
       },
       markers: []
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.$refs.mapRef.$mapPromise.then(function (map) {
       map.panTo({
-        lat: 18.5383,
-        lng: -72.29171
+        lat: parseFloat(_this.customer.latitude),
+        lng: parseFloat(_this.customer.longitude)
       });
     });
   },
@@ -5550,7 +5550,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getCustomer: function getCustomer(id) {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/v1/customers/' + id, {
         headers: {
@@ -5558,7 +5558,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         console.log(response.data.data.data);
-        _this.customer = response.data.data;
+        _this2.customer = response.data.data;
       });
     }
   }
@@ -54197,7 +54197,13 @@ var render = function () {
                             to: { name: "login" },
                           },
                         },
-                        [_vm._v("\n              Login\n            ")]
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-lock",
+                            staticStyle: { "padding-right": "6px" },
+                          }),
+                          _vm._v("\n              Login\n            "),
+                        ]
                       ),
                     ],
                     1
@@ -54211,7 +54217,13 @@ var render = function () {
                           staticClass: "nav-link",
                           attrs: { to: { name: "logout" } },
                         },
-                        [_vm._v("\n              Logout\n            ")]
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-user",
+                            staticStyle: { "padding-right": "6px" },
+                          }),
+                          _vm._v("\n              Logout\n            "),
+                        ]
                       ),
                     ],
                     1
@@ -54434,9 +54446,9 @@ var render = function () {
               [
                 _c("GmapMap", {
                   ref: "mapRef",
-                  staticStyle: { width: "500px", height: "300px" },
+                  staticStyle: { width: "500px", height: "350px" },
                   attrs: {
-                    center: { lat: 10, lng: 10 },
+                    center: { lat: 43.2556568, lng: -71.833 },
                     zoom: 7,
                     "map-type-id": "terrain",
                   },

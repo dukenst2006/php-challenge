@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Transformers\CustomerTransformer;
 use Symfony\Component\HttpFoundation\Response;
 
 class CustomerController extends Controller

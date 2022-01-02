@@ -17,13 +17,13 @@ use App\Http\Controllers\API\v1\RegisterController;
 |
 */
 
-Route::group(['prefix' => 'v1'], function () {
+Route::group(['prefix' => 'v1', 'as' => 'api.'], function () {
     Route::group(['prefix' => 'auth'], function () {
         Route::post('login', [LoginController::class, 'login'])->name('login');
         Route::post('register', [RegisterController::class, 'register'])->name('register');
     });
 
-    Route::middleware('auth:api')->group(function () {
+    Route::middleware('auth:api', 'throttle:60,1')->group(function () {
         Route::post('user/logout', [LoginController::class, 'logout'])->name('logout');
         Route::resource('customers', CustomerController::class);
     });

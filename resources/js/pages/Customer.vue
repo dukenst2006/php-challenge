@@ -50,10 +50,10 @@
                 </div>
                 <div class="col-lg-6">
                     <GmapMap ref="mapRef"
-                    :center="{lat:10, lng:10}"
+                    :center="{lat:43.2556568, lng:-71.833}"
                     :zoom="7"
                     map-type-id="terrain"
-                    style="width: 500px; height: 300px"
+                    style="width: 500px; height: 350px"
                     >
                     </GmapMap>
                 </div>
@@ -68,13 +68,13 @@
         data() {
             return {
                 customer: {},
-                center: { lat: 4.5, lng: 99 },
+                center: { lat: 43.2556568, lng: -71.833 },
                 markers: [],
             }
         },
         mounted () {
             this.$refs.mapRef.$mapPromise.then((map) => {
-            map.panTo({lat: 18.5383, lng: -72.29171})
+            map.panTo({lat: parseFloat(this.customer.latitude), lng: parseFloat(this.customer.longitude)})
             })
         },
         created() {
@@ -93,7 +93,7 @@
         methods: {
             getCustomer(id) {
                 axios.get('/api/v1/customers/' + id,{
-              headers: { Authorization: "Bearer " + this.token }
+                headers: { Authorization: "Bearer " + this.token }
             }).then(response => {
                     console.log(response.data.data.data);
                     this.customer = response.data.data;

@@ -31,6 +31,7 @@
               data-toggle="collapse"
               :to="{ name: 'login' }"
             >
+            <i class="fas fa-lock" style="padding-right:6px"></i>
               Login
             </router-link>
           </li>
@@ -39,6 +40,7 @@
               class="nav-link"
               :to="{ name: 'logout' }"
             >
+            <i class="fas fa-user" style="padding-right:6px"></i>
               Logout
             </router-link>
           </li>
@@ -75,11 +77,6 @@ export default {
     isLoggedIn() {
       return this.$store.getters.loggedIn
     }
-  },
-  watch: {
-    // $route() {
-    //   $("#navbarCollapse").collapse("hide");
-    // },
-  },
+  }
 };
 </script>

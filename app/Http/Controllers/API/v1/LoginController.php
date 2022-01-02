@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
+use Illuminate\Support\Facades\Auth;
+use App\Transformers\UserTransformer;
 
 class LoginController extends Controller
 {
     /**
      * @OA\Post(
      ** path="/api/v1/auth/login",
-     *   tags={"Users"},
+     *   tags={"Auth"},
      *   summary="Login a user",
      *   operationId="login",
      *
@@ -60,17 +61,6 @@ class LoginController extends Controller
      **/
     public function login(Request $request)
     {
-        // $this->validate($request, $this->rules(), $this->validationErrorMessages());
-
-        // $request = Request::create('/oauth/token', 'POST', [
-        //     'grant_type' => 'password',
-        //     'client_id' => config('services.vue_client.id'),
-        //     'client_secret' => config('services.vue_client.secret'),
-        //     'username' => $request->email,
-        //     'password' => $request->password,
-        // ]);
-
-        // return app()->handle($request);
         $validator = $request->validate([
             'email' => 'email|required',
             'password' => 'required'
@@ -81,8 +71,7 @@ class LoginController extends Controller
         } else {
             $success['access_token'] = auth()->user()->createToken('authToken')->accessToken;
             $success['user'] = auth()->user();
-            //return response()->json(['success' => $success], 200);
-            return response([$success], 200);
+            return response()->json([$success], 200);
         }
     }
 
@@ -128,28 +117,5 @@ class LoginController extends Controller
         }
         Auth::user()->token()->revoke();
         return response()->json(['success' => true, 'message' => 'User Logged Out'], 200);
-    }
-
-    /**
-     * Get the login validation rules.
-     *
-     * @return array
-     */
-    protected function rules()
-    {
-        return [
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ];
-    }
-
-    /**
-     * Get the login validation error messages.
-     *
-     * @return array
-     */
-    protected function validationErrorMessages()
-    {
-        return [];
     }
 }

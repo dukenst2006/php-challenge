@@ -12,7 +12,7 @@ class RegisterControllerTest extends TestCase
 {
     public function testUserCanRegister()
     {
-        $response = $this->json('POST', route('register'), [
+        $response = $this->json('POST', route('api.register'), [
             'name'  =>  'Test',
             'email'  =>  time() . 'test@example.com',
             'password'  =>  '123456789',

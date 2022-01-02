@@ -51,7 +51,7 @@ class CustomerControllerTest extends TestCase
         ]);
         $response = $this->withHeaders([
             'Authorization' => 'Bearer ' . $user->access_token,
-        ])->json('GET', 'api/customers/' . $customer->id);
+        ])->json('GET', 'api/v1/customers/' . $customer->id);
 
         //Write the response in laravel.log
         \Log::info(1, [$response->getContent()]);
@@ -64,7 +64,7 @@ class CustomerControllerTest extends TestCase
         $user = $this->signIn();
         $response = $this->withHeaders([
             'Authorization' => 'Bearer ' . $user->access_token,
-        ])->json('GET', 'api/customers/' . 0);
+        ])->json('GET', 'api/v1/customers/' . 0);
 
         $response->assertStatus(Response::HTTP_NOT_FOUND);
     }

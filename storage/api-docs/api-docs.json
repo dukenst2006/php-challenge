@@ -101,7 +101,7 @@
         "/api/v1/auth/login": {
             "post": {
                 "tags": [
-                    "Users"
+                    "Auth"
                 ],
                 "summary": "Login a user",
                 "operationId": "login",
@@ -182,7 +182,7 @@
         "/api/v1/auth/register": {
             "post": {
                 "tags": [
-                    "Users"
+                    "Auth"
                 ],
                 "summary": "Register a new user",
                 "operationId": "register",

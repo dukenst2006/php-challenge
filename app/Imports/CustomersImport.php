@@ -20,7 +20,7 @@ class CustomersImport implements ToModel, WithHeadingRow, WithProgressBar
     public function model(array $row)
     {
         return new Customer([
-            'id'             => $row['id'],
+            // 'id'             => $row['id'],
             'first_name'     => $row['first_name'],
             'last_name'      => $row['last_name'],
             'email'          => $row['email'],

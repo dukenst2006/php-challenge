@@ -3,10 +3,11 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use App\Imports\CustomersImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Imports\CustomersImport;
 
 class ImportCustomersTest extends TestCase
 {
@@ -15,19 +16,16 @@ class ImportCustomersTest extends TestCase
      */
     public function can_import_customers()
     {
-        Excel::fake();
+        // $this->artisan('import-customers:csv')->assertExitCode(0);
+    }
 
-        // get the file path
-        $file = storage_path('app/customers.csv');
-
-        // Excel::assertImported($file, 'local');
-
-        Excel::assertImported($file, 'local', function (CustomersImport $import) {
-            return true;
-        });
-
-        Excel::assertImported($file, function (CustomersImport $import) {
-            return true;
-        });
+    public function test_customers_csv_file_exist()
+    {
+        $file = storage_path('customers.csv');
+        // file name exists or not
+        $this->assertFileExists(
+            $file,
+            "filename doesn't exists"
+        );
     }
 }

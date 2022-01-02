@@ -19,15 +19,4 @@ class CustomerObserver
     {
         $this->dispatch(new GeocodeAddress($customer));
     }
-
-    /**
-     * Handle the Customer "updated" event.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return void
-     */
-    public function updated(Customer $customer)
-    {
-        //
-    }
 }

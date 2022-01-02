@@ -12,7 +12,7 @@ class RegisterController extends Controller
     /**
      * @OA\Post(
      ** path="/api/v1/auth/register",
-     *   tags={"Users"},
+     *   tags={"Auth"},
      *   summary="Register a new user",
      *   operationId="register",
      *
@@ -89,10 +89,9 @@ class RegisterController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        $success['token'] =  $user->createToken('MyApp')->accessToken;
+        $success['access_token'] =  $user->createToken('MyApp')->accessToken;
         $success['user'] = $user;
 
-        // return (new LoginController())->login($request);
         return response()->json(['success' => $success], 200);
     }
 
