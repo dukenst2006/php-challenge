@@ -14,10 +14,10 @@ class ImportCustomersTest extends TestCase
     /**
      * @test
      */
-    public function can_import_customers()
-    {
-        // $this->artisan('import-customers:csv')->assertExitCode(0);
-    }
+    // public function can_import_customers()
+    // {
+    //     $this->artisan('import-customers:csv')->assertExitCode(0);
+    // }
 
     public function test_customers_csv_file_exist()
     {

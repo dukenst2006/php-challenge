@@ -10,28 +10,33 @@ vuex 3.6.2, Bootstrap 4.
  
 ### Prerequisites
 ```
- Make sure to use a version of php >= 8.0 (php -v).
- Make sure you have composer installed.
- Make sure you have npm installled.   
+ - PHP version >= 8.0 (php -v).
+ - Composer installed.
+ - npm installled.   
 ```
 
 ### Features
 
-- Frontend (SPA) built with [Bootstrap] (login, Customers listing, custumer details)
+- Frontend (SPA) built with [Bootstrap] (login, Customers listing with pagination, custumer details etc..)
+- OAuth2 authentication implementation using laravel passport 
 - Command to import all customers from customers.csv
-- Job to get get customer latitude & longitude using Google Maps API
+- Job to get customer latitude & longitude base on address using Google Maps API
 - User dashboard, user update profile, user update password.
 - Laravel Passport Authentication.
-- API Documentation & testing `/api/documentation`
+- API Documentation & testing `/api/docs`
 - PHPUnit test for all features. 
 
 ### How to Install
 
-- Download (as zip) and extract or git clone the project under your web server's root directory.
+- Clone the project under your web server's root directory using git or Download (as zip) and extract.
    ```bash
-  $ https://github.com/dukenst2006/php-challenge.git
+  $ git clone https://github.com/dukenst2006/php-challenge.git
   ```
- - Create a file .env using .env.example. Update the files - set app url, database connection, mail connection and laravel passport details.
+ - Create a file .env using .env.example. Update the files - set app url, database connection, passport details like client_id & client_secret and  GOOGLE_MAPS_API_KEY.
+ ```
+  $ cp .env.example .env 
+  $ cp .env.example .env.testing 
+```
  
 - Run `php artisan key:generate`
 
@@ -48,6 +53,7 @@ vuex 3.6.2, Bootstrap 4.
   You can use `email: test@gmail.com`, `pwd: secret`
 
 - Run `php artisan passport:install`.
+Note client_id & client_secret provided. it will required to get API authorizations from `/api/docs` endpoint
 
 - Run `php artisan import-customers:csv` to import customers from customers.csv file.
 NB: latitude & longitude will be fill from Google map API
@@ -58,4 +64,8 @@ NB: latitude & longitude will be fill from Google map API
   ```
 
  ### DEMO
- ![Laravel Vue SPA boiler plate Demo](Demo01.gif) 
+ ![SPA Demo](https://user-images.githubusercontent.com/7965394/147863744-d8094c4b-f333-4357-b5d7-69db888a09bb.gif) 
+
+ ![Import customers](https://user-images.githubusercontent.com/7965394/147863547-4500177c-d522-412a-9d61-416b3eaf35d6.png) 
+
+ ![API Documentation](https://user-images.githubusercontent.com/7965394/147863688-126094d8-9288-4857-a4a0-54616e4c1074.gif) 
